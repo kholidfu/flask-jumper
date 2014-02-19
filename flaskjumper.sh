@@ -5,17 +5,33 @@
 #: Version     : 1.1.3
 #: Description : Flask Boilerplate Project with Twitter Bootstrap 3
 #: Options     : None
-#: Usage       : $ flaskjumper projectname
+#: Usage       : $ flaskjumpstart projectname
 
+# include the source, unless your script will not work
+# source /usr/local/bin/virtualenvwrapper.sh
+# sudo apt-get install build-essential python-dev
+
+# shell argument 
+# $1 = name of the project
+# $2 = domain name
 
 project="$1"
+# domain="$2"
+
+# cd into your python virtualenv project
+# my venv project reside in this dir
+
+# cd ~/Python_Project/
+# cd $project
 
 # check if the project name exists
 if [ ! -d $1 ]; then
 
-  # create virtualenv $project    
+  # mkvirtualenv
+  # mkvirtualenv $project
   virtualenv $project
 
+  # cdvirtualenv
   cd $project
 
   # create app directory and cd to it
@@ -28,7 +44,8 @@ if [ ! -d $1 ]; then
   mkdir static/css/
   mkdir static/js/
 
-  # download twitter bootstrap v.3
+  # download bootstrap ori
+  # wget -c http://getbootstrap.com/2.3.2/assets/bootstrap.zip
   wget -c https://github.com/twbs/bootstrap/releases/download/v3.0.2/bootstrap-3.0.2-dist.zip
 
   # unzip it
@@ -344,8 +361,8 @@ EOF
   <hr>
   <div class="marketing row-fluid">
     <div class="span12">
-      <h1>Hot Topics</h1>
-      <p>Hot Contents</p>
+      <h4>Top 100 Billboard Song</h4>
+      <p>Lyrics</p>
     </div>
   </div>
   <hr>
@@ -359,7 +376,7 @@ EOF
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for d in data %}
 <url>
-    <loc>http://www.domains.com/{{ d.title|getchars|slug }}/{{ d._id }}</loc>
+    <loc>http://www.blankons.com/{{ d.title|getchars|slug }}/{{ d._id }}</loc>
 </url>
 {% endfor %}                                                                
 </urlset>
